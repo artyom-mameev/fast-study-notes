@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.TextFlow?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_CENTER"
+          xmlns="http://javafx.com/javafx/11.0.1"
+          fx:controller="com.artyommameev.faststudynotes.controller.MainController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+  </columnConstraints>
+  <padding>
+    <Insets/>
+  </padding>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+  </rowConstraints>
+  <MenuBar>
+    <Menu mnemonicParsing="false" text="File">
+      <MenuItem fx:id="saveMenuItem" mnemonicParsing="false" text="Save"
+                onAction="#saveAction" accelerator="Shortcut+S"/>
+      <MenuItem mnemonicParsing="false" text="Save As" onAction="#saveAsAction"
+                accelerator="Shortcut+Shift+S"/>
+      <MenuItem fx:id="lastSavedFileMenuItem" mnemonicParsing="false"
+                text="Last Saved File" onAction="#lastSavedFileAction"
+                accelerator="Shortcut+L"/>
+      <SeparatorMenuItem/>
+      <MenuItem mnemonicParsing="false" text="Close" onAction="#closeAction"/>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Edit">
+      <MenuItem mnemonicParsing="false" text="Undo" onAction="#undoAction"
+                accelerator="Shortcut+Z"/>
+      <SeparatorMenuItem/>
+      <MenuItem mnemonicParsing="false" text="Paste Text"
+                onAction="#pasteTextAction" accelerator="Shortcut+V"/>
+      <MenuItem mnemonicParsing="false" text="Paste Image"
+                onAction="#pasteImageAction" accelerator="Shortcut+I"/>
+      <MenuItem mnemonicParsing="false" text="Select All"
+                onAction="#selectAllAction" accelerator="Shortcut+A"/>
+      <SeparatorMenuItem/>
+      <MenuItem mnemonicParsing="false" text="Corrections"
+                onAction="#editCorrectionsAction" accelerator="Shortcut+R"/>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Settings">
+      <CheckMenuItem mnemonicParsing="false" text="Uppercase at the beginning"
+                     onAction="#uppercaseAtTheBeginningAction"
+                     accelerator="Shortcut+U"/>
+      <CheckMenuItem mnemonicParsing="false" text="Period at the end"
+                     onAction="#periodAtTheEndAction" accelerator="Shortcut+P"/>
+    </Menu>
+  </MenuBar>
+  <GridPane GridPane.columnIndex="0" GridPane.halignment="LEFT"
+            GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+            GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+    <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <GridPane.margin>
+      <Insets/>
+    </GridPane.margin>
+    <GridPane GridPane.columnIndex="0" GridPane.hgrow="ALWAYS"
+              GridPane.rowIndex="0" GridPane.vgrow="ALWAYS">
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints fillHeight="false" maxHeight="-Infinity"
+                        minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      </rowConstraints>
+      <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="189.0"
+                  prefViewportHeight="148.0" prefViewportWidth="139.0"
+                  prefWidth="288.0" GridPane.columnIndex="0"
+                  GridPane.rowIndex="1">
+        <TextFlow fx:id="textFlow" GridPane.columnIndex="0"
+                  GridPane.rowIndex="0">
+          <padding>
+            <Insets bottom="3" left="5" right="5" top="3"/>
+          </padding>
+        </TextFlow>
+      </ScrollPane>
+      <HBox spacing="2" GridPane.columnIndex="0" GridPane.hgrow="NEVER"
+            GridPane.rowIndex="0" GridPane.valignment="TOP"
+            GridPane.vgrow="NEVER">
+        <padding>
+          <Insets left="2" top="2"/>
+        </padding>
+        <Button mnemonicParsing="false" text="Undo" onAction="#undoAction">
+          <tooltip>
+            <Tooltip text="Undo Action (Ctrl+Z)"/>
+          </tooltip>
+          <graphic>
+            <FontAwesomeIconView glyphName="UNDO"/>
+          </graphic>
+        </Button>
+        <Button fx:id="saveButton" mnemonicParsing="false" text="Save"
+                onAction="#saveAction">
+          <tooltip>
+            <Tooltip text="Save File (Ctrl+S)"/>
+          </tooltip>
+          <graphic>
+            <FontAwesomeIconView glyphName="SAVE"/>
+          </graphic>
+        </Button>
+        <Button mnemonicParsing="false" text="Corrections"
+                onAction="#editCorrectionsAction">
+          <tooltip>
+            <Tooltip text="Edit Corrections (Ctrl+R)"/>
+          </tooltip>
+          <graphic>
+            <FontAwesomeIconView glyphName="EDIT"/>
+          </graphic>
+        </Button>
+      </HBox>
+    </GridPane>
+    <GridPane GridPane.columnIndex="1" GridPane.hgrow="ALWAYS"
+              GridPane.rowIndex="0" GridPane.vgrow="ALWAYS">
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      </columnConstraints>
+      <padding>
+        <Insets left="5.0"/>
+      </padding>
+      <rowConstraints>
+        <RowConstraints fillHeight="false" maxHeight="-Infinity"
+                        minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      </rowConstraints>
+      <HBox spacing="2" GridPane.columnIndex="0" GridPane.hgrow="NEVER"
+            GridPane.rowIndex="0" GridPane.valignment="TOP"
+            GridPane.vgrow="NEVER">
+        <padding>
+          <Insets left="2" top="2"/>
+        </padding>
+        <Button cancelButton="true" mnemonicParsing="false" text="Paste Image"
+                onAction="#pasteImageAction">
+          <tooltip>
+            <Tooltip text="Paste Image From Clipboard (Ctrl+I)"/>
+          </tooltip>
+          <graphic>
+            <FontAwesomeIconView glyphName="IMAGE"/>
+          </graphic>
+        </Button>
+        <Button mnemonicParsing="false" text="Paste Text"
+                onAction="#pasteTextAction">
+          <tooltip>
+            <Tooltip text="Paste Text From Clipboard (Ctrl+V)"/>
+          </tooltip>
+          <graphic>
+            <FontAwesomeIconView glyphName="PASTE"/>
+          </graphic>
+        </Button>
+        <Button mnemonicParsing="false" text="Select All"
+                onAction="#selectAllAction">
+          <tooltip>
+            <Tooltip text="Select All Text (Ctrl+A)"/>
+          </tooltip>
+          <graphic>
+            <FontAwesomeIconView glyphName="SQUARE"/>
+          </graphic>
+        </Button>
+        <CheckBox fx:id="uppercaseAtTheBeginningCheckBox"
+                  mnemonicParsing="false" text="Uppercase at the beginning"
+                  onAction="#uppercaseAtTheBeginningAction">
+          <tooltip>
+            <Tooltip
+                    text="Makes the text begin with a capital letter (Ctrl+U)"/>
+          </tooltip>
+          <padding>
+            <Insets left="4"/>
+          </padding>
+        </CheckBox>
+        <CheckBox fx:id="periodAtTheEndCheckBox" mnemonicParsing="false"
+                  text="Period at the end" onAction="#periodAtTheEndAction">
+          <tooltip>
+            <Tooltip text="Adds a dot at the end of the text (Ctrl+P)"/>
+          </tooltip>
+          <padding>
+            <Insets left="4"/>
+          </padding>
+        </CheckBox>
+      </HBox>
+      <TextArea fx:id="textArea" wrapText="true" GridPane.columnIndex="0"
+                GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+                GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+        <contextMenu>
+          <ContextMenu>
+            <items>
+              <MenuItem text="Add Headline"
+                        onAction="#onAddHeadlineContextAction"/>
+              <MenuItem text="Add Paragraph Break + Text"
+                        onAction="#onAddParagraphBreakAndTextContextAction"/>
+              <MenuItem text="Add Line Break + Text"
+                        onAction="#onAddLineBreakAndTextContextAction"/>
+              <MenuItem text="Add Plain Text"
+                        onAction="#onAddPlainTextContextAction"/>
+              <MenuItem text="Add Code" onAction="#onAddCodeContextAction"/>
+              <MenuItem text="Copy" onAction="#onCopyContextAction"/>
+              <MenuItem text="Paste" onAction="#onPasteContextAction"/>
+              <MenuItem text="Delete" onAction="#onDeleteContextAction"/>
+            </items>
+          </ContextMenu>
+        </contextMenu>
+      </TextArea>
+    </GridPane>
+  </GridPane>
+</GridPane>
