@@ -186,8 +186,8 @@ the text a more convenient process.
 
 Adds a line break to the document and after it adds the selected text. The text
 passes through the standard processing mentioned above. Line break adding has
-been combined with adding of normal text for the same reason as mentioned in "
-Add Paragraph Break + Text".
+been combined with adding of normal text for the same reason as mentioned in
+"Add Paragraph Break + Text".
 
 #### Add Code + Text
 
