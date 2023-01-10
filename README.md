@@ -51,13 +51,13 @@ sqlite is used as a database.
 ## Features
 
 - A functional user interface, which alerts the user about errors, warns about
-  the possible irreversibility of operations and informs about the successful
+  the possible irreversibility of operations, and informs about the successful
   completion of actions, the result of which is not obvious;
 - Saving documents in the MS Word format;
 - Users can quickly add and format document elements (headings, plain text,
   code, images) in a couple of clicks;
 - Added text is automatically corrected from frequent OCR text recognition
-  errors, there is a custom user dictionary for advanced correction rules;
+  errors; there is a custom user dictionary for advanced correction rules;
 - An option to add plain text, which does not go through the correction and
   formatting procedures;
 - Additional features that simplify the correction of copied text fragments:
@@ -191,7 +191,7 @@ been combined with adding of normal text for the same reason as mentioned in
 
 #### Add Code + Text
 
-Adds monospaced text to the document. The text passes through standard
+Adds monospaced text to the document. The text passes through the standard
 processing specified above.
 
 #### Add Plain Text
@@ -204,7 +204,7 @@ The "Paste Image" button is used to paste an image from the clipboard.
 
 ### Undo changes
 
-Addition of an element can be cancelled by using the "Undo" button.
+The addition of an element can be canceled by using the "Undo" button.
 
 ### Saving the document
 
@@ -217,12 +217,12 @@ The last saved file can be opened by selecting "File - Last Saved File".
 
 ### Custom dictionary
 
-An entries of the custom dictionary can be customized using the "Corrections"
+The entries in the custom dictionary can be customized using the "Corrections"
 button.
 
 #### Adding new corrections
 
-A new corrections can be added using the "Add" button.
+Corrections can be added using the "Add" button.
 
 #### Editing or removing existing corrections
 
