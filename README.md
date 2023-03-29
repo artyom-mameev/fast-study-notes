@@ -5,12 +5,12 @@
 **Fast Study Notes** is a cross-platform GUI note-taking application written in
 Java/JavaFX that provides convenient tools for taking notes from fragments of
 digital study materials or documentation. The main feature of the application is
-easy work with scans of textbooks with poorly recognized text via OCR. When
+convenient work with scans of textbooks with poorly recognized text. When
 copying material from such textbooks, there is no need to constantly correct
 recognition mistakes, which can often be duplicated for the same character
-combination, since the application allows to automatically correct such mistakes
+combinations, since the application allows to automatically correct such mistakes
 using an extensible dictionary. The application has a simple architecture that
-allows for easy expansion of supported document formats and a functional user
+allows for easy expansion of supported document formats and a target-specific user
 interface that is optimized to perform the required tasks. During the
 development process special attention was paid to the simplicity and readability
 of the code, as well as the ease of support. The project is covered by unit
@@ -38,7 +38,7 @@ tests and documented.
 - [Font Awesome](https://bitbucket.org/Jerady/fontawesomefx) for icons;
 - [Lombok](https://projectlombok.org) to avoid boilerplate code;
 - [JUnit](https://junit.org/junit5/) for writing unit/integration tests;
-- [Mockito](https://site.mockito.org) for creating a mock objects in
+- [Mockito](https://site.mockito.org) for creating a mock objects in the
   unit/integration tests;
 - [EqualsVerifier](https://jqno.nl/equalsverifier/) to test the `equals()`
   and `hashCode()` methods.
@@ -51,7 +51,7 @@ sqlite is used as a database.
 ## Features
 
 - A functional user interface, which alerts the user about errors, warns about
-  the possible irreversibility of operations, and informs about the successful
+  the possible irreversibility of operations and informs about the successful
   completion of actions, the result of which is not obvious;
 - Saving documents in the MS Word format;
 - Users can quickly add and format document elements (headings, plain text,
@@ -65,7 +65,7 @@ sqlite is used as a database.
   sentence of the added fragment or start a new sentence with a capital letter;
 - Custom dictionary entries are divided into two types: for text correction and
   code correction, because some character combinations can be obviously
-  incorrect for the code (e.g. space after dots) but normal for the text and
+  incorrect for a code (e.g. space after dots) but normal for a text and
   vice versa;
 - Keyboard shortcuts.
 
@@ -82,7 +82,7 @@ sqlite is used as a database.
 - A focus on generally accepted good coding principles and design patterns;
 - Following encapsulation principles to provide convenient and secure
   interfaces;
-- Document elements are both added and displayed through the objects of Writer
+- The document elements are both added and displayed using the objects of Writer
   interface, allowed to make these operations uniform. All operations are
   executed on a MultiWriter object, which can contain an unlimited number of
   Writer objects and delegate the execution of interface methods to them, so
@@ -94,13 +94,12 @@ sqlite is used as a database.
 
 - Focus to write simple and readable code;
 - Simple and meaningful names of classes, methods and variables, separation of
-  different aspects of functionality in separate methods;
+  different aspects of functionality to separate methods;
 - The code is accompanied by documentation, with complex points accompanied by
   comments;
-- Division of complex code constructs into several primitive parts for better
-  understanding;
+- Separation of complex code constructs into several primitive parts for better
+  understanding, the code is also separated by purpose;
 - Limiting the number of characters by line width for better readability;
-- Diverse operations are separated by indents;
 - Avoiding "spaghetti code" (nested ifs);
 - Using Lombok to avoid boilerplate code.
 
@@ -138,14 +137,13 @@ mvnw clean test
 
 ### Basics
 
-The main working area is located in the right text box. It is supposed that the
-user will copy the text there and then work with it directly, selecting the
-fragments to be added to the document and selecting the type of element with the
-context menu. It is also possible to set via checkboxes that the selected
-fragment should always start with a capital letter, and/or that it should always
-end with a period (if no other punctuation marks are present). When an element
-is added via the context menu, a preview of the document is shown on the left
-side of the window.
+The main working area is located in the right text box. It is supposed to copy
+the text here and then work with it directly, selecting the fragments to be added
+to the document and the type of element using the context menu. There are also
+checkboxes that allows to set if the selected fragment should always start with
+a capital letter, and/or if it should always end with a period (if no other
+punctuation marks are present). When an element is added via the context menu,
+a preview of the document is shown on the left side of the window.
 
 ### Standard processing of the added text
 
@@ -174,17 +172,16 @@ standard processing mentioned above.
 
 #### Add Paragraph Break + Text
 
-Adds a paragraph break to the document and after it adds the selected text. The
+Adds a paragraph break to the document, and after it adds the selected text. The
 text passes the standard processing specified above. Paragraph break adding has
 been combined with adding of normal text for the reason that poorly recognized
 text loses paragraph data and can create unnecessary line and paragraph breaks
-that should be ignored. And combining paragraph break adding with adding of
-normal text makes the process of restoring paragraphs or marking indents between
-the text a more convenient process.
+that should be ignored. And this is a convenient way to mark paragraphs and
+indentations.
 
 #### Add Line Break + Text
 
-Adds a line break to the document and after it adds the selected text. The text
+Adds a line break to the document, and after it adds the selected text. The text
 passes through the standard processing mentioned above. Line break adding has
 been combined with adding of normal text for the same reason as mentioned in
 "Add Paragraph Break + Text".
@@ -204,7 +201,7 @@ The "Paste Image" button is used to paste an image from the clipboard.
 
 ### Undo changes
 
-The addition of an element can be canceled by using the "Undo" button.
+Adding of an element can be cancelled by using the "Undo" button.
 
 ### Saving the document
 
@@ -232,8 +229,7 @@ The existing corrections can be edited or removed using the context menu.
 
 ## TODO
 
-- [ ] Write integration tests for components for which unit testing is
-  impossible (JavaFX controllers and `SimpleAlertCreator`).
+- [ ] Write integration tests for JavaFX controllers.
 - [ ] Implement automatic code formatting for different programming languages.
 - [ ] Add mnemonics.
 
